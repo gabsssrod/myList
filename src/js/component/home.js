@@ -13,7 +13,7 @@ export function Home() {
 	}
 
 	function addToDo(e) {
-		console.log(toDo);
+		toDo("");
 	}
 
 	return (
@@ -23,9 +23,7 @@ export function Home() {
 			<input placeholder="add to list" onChange={toDoChange} />
 
 			<button onClick={addToDo}>add</button>
-			<ul>
-				<li />
-			</ul>
+			<ul>{toDo}</ul>
 		</>
 	);
 }
