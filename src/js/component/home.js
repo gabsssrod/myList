@@ -14,7 +14,7 @@ export function Home() {
 
 	function addToDo(e) {
 		if (toDo === "") return;
-		setNewToDo([...newToDo, { id: Date.now(), text: toDo }]);
+		setNewToDo([...newToDo, { text: toDo }]);
 	}
 
 	return (
