@@ -13,7 +13,8 @@ export function Home() {
 	}
 
 	function addToDo(e) {
-		toDo("");
+		if (toDo === "") return;
+		setNewToDo([...newToDo, { id: Date.now(), text: toDo }]);
 	}
 
 	return (
@@ -23,7 +24,12 @@ export function Home() {
 			<input placeholder="add to list" onChange={toDoChange} />
 
 			<button onClick={addToDo}>add</button>
-			<ul>{toDo}</ul>
+
+			<ul>
+				{newToDo.map(todo => (
+					<li>{todo.text}</li>
+				))}
+			</ul>
 		</>
 	);
 }
