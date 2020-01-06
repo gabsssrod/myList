@@ -27,7 +27,7 @@ export function Home() {
 
 			<ul>
 				{newToDo.map(todo => (
-					<li>{todo.text}</li>
+					<li key={todo.index}>{todo.text}</li>
 				))}
 			</ul>
 		</>
