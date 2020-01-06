@@ -6,9 +6,9 @@ import rigoImage from "../../img/rigo-baby.jpg";
 //create your first component
 export function Home() {
 	const [value, setValue] = useState();
-	// const [toDo, setToDO] = useState();
 	const [newToDo, setNewToDo] = useState([]);
 
+	// const [toDo, setToDO] = useState();
 	// function toDoChange(e) {
 	// 	setToDO(e.target.value);
 	// }
@@ -19,6 +19,11 @@ export function Home() {
 		setValue("");
 	}
 
+	function deleteInput(e) {
+		newToDo.splice(list1, 1);
+		setNewToDo([...newToDo]);
+	}
+
 	return (
 		<>
 			<h1>To Do</h1>
@@ -26,13 +31,18 @@ export function Home() {
 				id="input1"
 				type="text"
 				placeholder="add to list"
-				onChange={e => setValue(e.target.value)}
 				value={value}
+				onChange={e => setValue(e.target.value)}
 			/>
 			<button onClick={addToDo}>add</button>
 			<ul>
 				{newToDo.map(todo => (
-					<li key={todo.index}>{todo.text}</li>
+					<>
+						<li id="list1" key={todo.index}>
+							{todo.text}
+						</li>
+						<button onClick={deleteInput}>trash</button>
+					</>
 				))}
 			</ul>
 		</>
